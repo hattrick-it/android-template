@@ -1,2 +1,2 @@
 # android-template
-Android CLean Boilerplate Code
+Android Clean Architecture Boilerplate Code
