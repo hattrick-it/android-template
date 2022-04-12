@@ -6,11 +6,9 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.viewbinding.ViewBinding
-import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import kotlin.reflect.KClass
 
-@InternalCoroutinesApi
 abstract class BaseActivity<T : BaseViewModel, B : ViewBinding>(clazz: KClass<T>) :
     FragmentActivity() {
 

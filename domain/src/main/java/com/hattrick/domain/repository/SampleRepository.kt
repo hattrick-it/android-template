@@ -1,7 +1,9 @@
 package com.hattrick.domain.repository
 
+import com.hattrick.domain.model.SampleModel
+
 interface SampleRepository {
 
-    fun sampleFun()
+    suspend fun sampleFun(): SampleModel
 
 }

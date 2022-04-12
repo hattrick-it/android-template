@@ -1,11 +1,14 @@
-package com.example.cocktailsreciepesv2.domain.model
+package com.hattrick.domain.resource
 
 sealed class Resource<out T> {
 
     data class Success<out T>(val data: T) : Resource<T>()
     data class Error(val error: CustomError) : Resource<Nothing>()
 
-    suspend fun checkResult(onSuccess: suspend (T) -> Unit, onError: suspend (CustomError) -> Unit) {
+    suspend fun checkResult(
+        onSuccess: suspend (T) -> Unit,
+        onError: suspend (CustomError) -> Unit
+    ) {
         when (this) {
             is Success -> {
                 onSuccess(data)
@@ -15,4 +18,5 @@ sealed class Resource<out T> {
             }
         }
     }
+
 }
