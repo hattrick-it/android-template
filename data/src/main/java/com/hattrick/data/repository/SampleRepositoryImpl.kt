@@ -15,21 +15,26 @@ class SampleRepositoryImpl(
     private val sampleRemoteDataSource: SampleRemoteDataSource,
 ) : SampleRepository {
 
-    private suspend fun getApiResponse(int: Int): SampleModel? {
+    private suspend fun getApiResponse(int: Int): SampleDataModel? {
         return try {
-            sampleRemoteDataSource.getApiResponse(int).toDomain()
+            sampleRemoteDataSource.getApiResponse(int)
         } catch (e: Exception) {
             Log.e("Error: ", e.toString())
             null
         }
     }
 
-    override suspend fun sampleFun(int: Int): SampleModel = withContext(ioDispatcher) {
-        if (sampleLocalDataSource.getElementFromDb(int) != null) {
-            sampleLocalDataSource.getElementFromDb(int).toDomain()
-        } else {
-            sampleLocalDataSource.saveElementToDb(sampleRemoteDataSource.getApiResponse(int))
-            getApiResponse(int)!!
+    override suspend fun sampleFun(int: Int): SampleModel {
+        return withContext(ioDispatcher) {
+            val dbRes = sampleLocalDataSource.getElementFromDb(int)
+            if (dbRes != null) {
+                dbRes.toDomain()
+            } else {
+                val apiRes = getApiResponse(int) ?: throw Exception("Remote error")
+                sampleLocalDataSource.saveElementToDb(apiRes)
+                apiRes.toDomain()
+            }
+
         }
     }
 

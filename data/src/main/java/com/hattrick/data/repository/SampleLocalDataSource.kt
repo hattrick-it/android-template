@@ -7,5 +7,5 @@ interface SampleLocalDataSource {
     suspend fun clearDb()
     suspend fun deleteElementFromDb(int: Int)
     suspend fun getAllFromDb(): List<SampleDataModel>
-    suspend fun getElementFromDb(int: Int): SampleDataModel
+    suspend fun getElementFromDb(int: Int): SampleDataModel?
 }
