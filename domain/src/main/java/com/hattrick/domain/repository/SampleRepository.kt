@@ -4,6 +4,6 @@ import com.hattrick.domain.model.SampleModel
 
 interface SampleRepository {
 
-    suspend fun sampleFun(): SampleModel
+    suspend fun sampleFun(int: Int): SampleModel
 
 }
