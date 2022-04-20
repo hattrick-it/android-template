@@ -7,15 +7,15 @@ import com.hattrick.domain.resource.Resource
 
 interface SampleUseCase {
 
-    suspend fun sampleUseCaseFun(): Resource<SampleModel>
+    suspend fun sampleUseCaseFun(int: Int): Resource<SampleModel>
 
 }
 
 class SampleUseCaseImpl(private val sampleRepository: SampleRepository) : SampleUseCase {
 
-    override suspend fun sampleUseCaseFun(): Resource<SampleModel> {
+    override suspend fun sampleUseCaseFun(int: Int): Resource<SampleModel> {
         return try {
-            Resource.Success(sampleRepository.sampleFun())
+            Resource.Success(sampleRepository.sampleFun(int))
         } catch (e: Exception) {
             Resource.Error(CustomError.SAMPLE_ERROR)
         }
