@@ -14,10 +14,10 @@ class SampleViewModel(private val sampleUseCase: SampleUseCase) : BaseViewModel(
     val sampleOutput: LiveData<SampleModel>
         get() = _sampleOutput
 
-    fun sampleViewModelFun() {
+    fun sampleViewModelFun(int: Int) {
         _isLoading.postValue(true)
         viewModelScope.launch {
-            sampleUseCase.sampleUseCaseFun().checkResult(
+            sampleUseCase.sampleUseCaseFun(int).checkResult(
                 onSuccess = { _sampleOutput.postValue(it) },
                 onError = { _error.postValue(it) }
             )
