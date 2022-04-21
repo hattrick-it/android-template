@@ -68,6 +68,8 @@ abstract class BaseFragment<T : BaseViewModel, B : ViewBinding>(clazz: KClass<T>
 
     open fun setupUI() {}
 
+    open fun setupNavigation() {}
+
     open fun showToast(message: String) {
         val toast = Toast.makeText(this.context, message, Toast.LENGTH_SHORT)
         toast.setGravity(Gravity.BOTTOM, 0, 40)
