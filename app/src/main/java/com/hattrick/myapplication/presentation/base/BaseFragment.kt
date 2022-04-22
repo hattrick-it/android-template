@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
 abstract class BaseFragment<T : BaseViewModel, B : ViewBinding>(clazz: KClass<T>) : Fragment() {
 
     //region Properties
-    protected val viewModel = getViewModel(clazz = clazz)
+    protected val viewModel by lazy { getViewModel(clazz = clazz) }
     protected val binding: B
         get() = _binding!!
 
@@ -49,6 +49,7 @@ abstract class BaseFragment<T : BaseViewModel, B : ViewBinding>(clazz: KClass<T>
         setupInputsViewModelBase()
         setupOutputsViewModel()
         setupOutputsViewModelBase()
+        setupNavigation()
     }
 
     override fun onPause() {

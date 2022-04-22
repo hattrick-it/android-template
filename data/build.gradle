@@ -48,6 +48,7 @@ dependencies {
     //room database
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")

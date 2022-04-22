@@ -7,9 +7,9 @@ import com.hattrick.domain.model.SampleModel
 @Entity(tableName = "sample_table")
 data class SampleDataModel(
     @PrimaryKey
-    val int: Int,
-    val string: String,
-    val float: Float
+    val id: Int,
+    val name: String,
+    val number: Float
 )
 
-fun SampleDataModel.toDomain(): SampleModel = SampleModel(name = string)
+fun SampleDataModel.toDomain(): SampleModel = SampleModel(name = name)

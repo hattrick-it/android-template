@@ -1,9 +1,12 @@
 package com.hattrick.myapplication.presentation.fragment
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.hattrick.myapplication.databinding.FragmentSample2Binding
@@ -18,9 +21,6 @@ class SampleFragment2 : BaseFragment<SampleViewModel, FragmentSample2Binding>(Sa
         super.onCreate(savedInstanceState)
 
         setHasOptionsMenu(true)
-        val appCompatActivity = activity as AppCompatActivity
-        appCompatActivity.setSupportActionBar(binding.toolbar)
-        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -38,6 +38,10 @@ class SampleFragment2 : BaseFragment<SampleViewModel, FragmentSample2Binding>(Sa
 
         val name = args.name
         binding.tvName.text = name
+
+        val appCompatActivity = activity as AppCompatActivity
+        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        appCompatActivity.title = "Fragment 2"
     }
 
 }

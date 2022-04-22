@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import kotlin.reflect.KClass
 
 abstract class BaseActivity<T : BaseViewModel, B : ViewBinding>(clazz: KClass<T>) :
-    FragmentActivity() {
+    AppCompatActivity() {
 
     //region Properties
-    protected val viewModel = getViewModel(clazz = clazz)
+    protected val viewModel by lazy { getViewModel(clazz = clazz) }
     protected lateinit var binding: B
     //endregion
 
