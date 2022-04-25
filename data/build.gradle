@@ -33,6 +33,7 @@ android {
 dependencies {
     var roomVersion = "2.4.2"
     var retrofitVersion = "2.9.0"
+    var okhttpVersion = "4.9.3"
 
     implementation project(':domain')
 
@@ -48,8 +49,15 @@ dependencies {
     //room database
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    //okhttp
+    implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
+
+    //logging interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
 }

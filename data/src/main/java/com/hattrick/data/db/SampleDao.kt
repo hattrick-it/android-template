@@ -14,12 +14,12 @@ interface SampleDao {
     @Query("DELETE FROM sample_table")
     suspend fun deleteAll()
 
-    @Query("DELETE FROM sample_table WHERE int = :int")
-    suspend fun deleteOne(int: Int)
+    @Query("DELETE FROM sample_table WHERE id = :id")
+    suspend fun deleteOne(id: Int)
 
     @Query("SELECT * FROM sample_table")
     suspend fun getAll(): List<SampleDataModel>
 
-    @Query("SELECT * FROM sample_table WHERE int = :int")
-    suspend fun getOne(int: Int): SampleDataModel
+    @Query("SELECT * FROM sample_table WHERE id = :id")
+    suspend fun getOne(id: Int): SampleDataModel
 }

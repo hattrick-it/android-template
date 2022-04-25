@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragment.SampleFragment2">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
-
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
