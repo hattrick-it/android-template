@@ -93,4 +93,6 @@ dependencies {
 
     //logging interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
+
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 }
