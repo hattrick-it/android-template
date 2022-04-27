@@ -77,8 +77,6 @@ fun MagicFun(
 
     if (checked) {
         HiddenText(color = Color.Red)
-    } else {
-        HiddenText(color = Color.Transparent)
     }
 }
 
