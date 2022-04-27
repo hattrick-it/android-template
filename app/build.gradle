@@ -21,6 +21,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        compose true
     }
     buildTypes {
         release {
@@ -35,9 +36,15 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.2.0-alpha08'
+    }
 }
 
 dependencies {
+    var retrofitVersion = "2.9.0"
+    var okhttpVersion = "4.9.3"
     implementation project(':domain')
     implementation project(':data')
 
@@ -47,6 +54,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.databinding:viewbinding:7.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.room:room-ktx:2.4.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -54,7 +62,35 @@ dependencies {
     implementation "io.insert-koin:koin-android:$koin_version"
     implementation "io.insert-koin:koin-core:$koin_version"
     testImplementation "io.insert-koin:koin-test:$koin_version"
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
 
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    //Compose
+    // Integration with activities
+    implementation 'androidx.activity:activity-compose:1.4.0'
+    // Compose Material Design
+    implementation 'androidx.compose.material:material:1.1.1'
+    // Animations
+    implementation 'androidx.compose.animation:animation:1.1.1'
+    // Tooling support (Previews, etc.)
+    implementation 'androidx.compose.ui:ui-tooling:1.1.1'
+    // Integration with ViewModels
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1'
+    // UI Tests
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.1.1'
+    implementation "androidx.compose.runtime:runtime-livedata:1.1.1"
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    //okhttp
+    implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
+
+    //logging interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
 }
