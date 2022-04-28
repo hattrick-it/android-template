@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import timber.log.Timber
 
 class ScreenTwoViewModel : ViewModel() {
 
@@ -23,5 +24,6 @@ class ScreenTwoViewModel : ViewModel() {
         screenTwoViewModelState.update {
             it.copy(isChecked = !it.isChecked)
         }
+        Timber.d(screenTwoViewModelState.value.isChecked.toString())
     }
 }
