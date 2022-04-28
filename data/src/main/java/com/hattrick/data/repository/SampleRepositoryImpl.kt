@@ -8,6 +8,7 @@ import com.hattrick.domain.repository.SampleRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 class SampleRepositoryImpl(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO,
@@ -19,7 +20,7 @@ class SampleRepositoryImpl(
         return try {
             sampleRemoteDataSource.getApiResponse(int)
         } catch (e: Exception) {
-            Log.e("Error: ", e.toString())
+            Timber.e(e)
             null
         }
     }

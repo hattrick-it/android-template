@@ -12,7 +12,6 @@ import com.hattrick.domain.usecase.SampleUseCase
 import com.hattrick.domain.usecase.SampleUseCaseImpl
 import com.hattrick.myapplication.presentation.viewmodel.SampleViewModel
 import kotlinx.coroutines.Dispatchers
-import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication

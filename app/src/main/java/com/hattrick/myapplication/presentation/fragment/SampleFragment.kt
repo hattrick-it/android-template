@@ -9,6 +9,7 @@ import com.hattrick.myapplication.R
 import com.hattrick.myapplication.databinding.FragmentSampleBinding
 import com.hattrick.myapplication.presentation.base.BaseFragment
 import com.hattrick.myapplication.presentation.viewmodel.SampleViewModel
+import timber.log.Timber
 
 class SampleFragment : BaseFragment<SampleViewModel, FragmentSampleBinding>(SampleViewModel::class) {
 
@@ -20,6 +21,7 @@ class SampleFragment : BaseFragment<SampleViewModel, FragmentSampleBinding>(Samp
             val name = getString(R.string.app_name)
             val fromFragmentToFragment2 = SampleFragmentDirections.actionSampleFragmentToSampleFragment2(name)
             findNavController().navigate(fromFragmentToFragment2)
+            Timber.i("navButton clicked")
         }
     }
 
