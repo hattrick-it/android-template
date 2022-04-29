@@ -1,8 +1,8 @@
 package com.hattrick.myapplication.util
 
 object NavRoute {
-    const val One = "screenOne"
-    const val Two = "screenTwo"
+    const val SCREEN_ONE = "screenOne"
+    const val SCREEN_TWO = "screenTwo"
 }
 
 object Arguments {

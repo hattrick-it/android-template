@@ -44,7 +44,7 @@ fun ScreenOne(navController: NavController) {
 fun NavigationButton(navController: NavController) {
     Button(
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
-        onClick = { navController.navigate("${NavRoute.Two}/Navigating from screen 1") }
+        onClick = { navController.navigate("${NavRoute.SCREEN_TWO}/Navigating from screen 1") }
     ) {
         Text(
             text ="Go to screen two",

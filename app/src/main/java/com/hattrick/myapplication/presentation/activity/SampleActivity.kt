@@ -19,12 +19,12 @@ class SampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = NavRoute.One) {
-                composable(route = NavRoute.One) {
+            NavHost(navController = navController, startDestination = NavRoute.SCREEN_ONE) {
+                composable(route = NavRoute.SCREEN_ONE) {
                     ScreenOne(navController)
                 }
                 composable(
-                    route = "${NavRoute.Two}/{${Arguments.StringArgument}}",
+                    route = "${NavRoute.SCREEN_TWO}/{${Arguments.StringArgument}}",
                     arguments = listOf(navArgument(Arguments.StringArgument) {
                         type = NavType.StringType
                     })
