@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
+import com.hattrick.myapplication.util.NavRoute
 
 @Composable
 fun ScreenOne(navController: NavController) {
@@ -43,7 +44,7 @@ fun ScreenOne(navController: NavController) {
 fun NavigationButton(navController: NavController) {
     Button(
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Black),
-        onClick = { navController.navigate("screenTwo/Navigating from screen 1") }
+        onClick = { navController.navigate("${NavRoute.SCREEN_TWO}/Navigating from screen 1") }
     ) {
         Text(
             text ="Go to screen two",

@@ -10,6 +10,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.hattrick.myapplication.presentation.compose.ScreenOne
 import com.hattrick.myapplication.presentation.compose.ScreenTwo
+import com.hattrick.myapplication.util.Arguments
+import com.hattrick.myapplication.util.NavRoute
 
 class SampleActivity : AppCompatActivity() {
 
@@ -17,17 +19,17 @@ class SampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "screenOne") {
-                composable(route = "screenOne") {
+            NavHost(navController = navController, startDestination = NavRoute.SCREEN_ONE) {
+                composable(route = NavRoute.SCREEN_ONE) {
                     ScreenOne(navController)
                 }
                 composable(
-                    route = "screenTwo/{stringArgument}",
-                    arguments = listOf(navArgument("stringArgument") {
+                    route = "${NavRoute.SCREEN_TWO}/{${Arguments.StringArgument}}",
+                    arguments = listOf(navArgument(Arguments.StringArgument) {
                         type = NavType.StringType
                     })
                 ) {
-                    val str = it.arguments?.getString("stringArgument")
+                    val str = it.arguments?.getString(Arguments.StringArgument)
                     ScreenTwo(str, navController)
                 }
             }
