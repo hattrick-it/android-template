@@ -22,18 +22,40 @@ android {
     buildFeatures {
         viewBinding true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    def props = new Properties()
+    try {
+        file("../build.properties").withInputStream { props.load(it) }
+    } catch (e) {
+        println("build.properties file not found, this file is not commited, ask for it to the previous developer")
+    }
+
+    def prodStoreFile = System.getenv("PRODUCTION_STORE_FILE") ?: props.getProperty("PRODUCTION_STORE_FILE")
+    def prodStorePassword = System.getenv("PRODUCTION_STORE_PASSWORD") ?: props.getProperty("PRODUCTION_STORE_PASSWORD")
+    def prodKeyAlias = System.getenv("PRODUCTION_KEY_ALIAS") ?: props.getProperty("PRODUCTION_KEY_ALIAS")
+    def prodKeyPassword = System.getenv("PRODUCTION_KEY_PASSWORD") ?: props.getProperty("PRODUCTION_KEY_PASSWORD")
+
+    signingConfigs {
+        release {
+            storeFile file("${project.rootDir}/${prodStoreFile}")
+            storePassword prodStorePassword
+            keyAlias prodKeyAlias
+            keyPassword prodKeyPassword
+        }
+    }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
     }
 }
 
