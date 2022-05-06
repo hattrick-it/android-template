@@ -1,5 +1,5 @@
 {
-  "branches": ["main", "beta", {name: "internal", prerelease: true}],
+  "branches": ["main", "beta", "internal"],
   "debug": true,
   "plugins": [
     "@semantic-release/commit-analyzer",
@@ -30,11 +30,11 @@
         "assets": [
           {
             "path": "app/build/outputs/apk/release/*.apk",
-            "name": "CPRApp-${nextRelease.version}.apk"
+            "name": "App-${nextRelease.version}.apk"
           },
           {
             "path": "app/build/outputs/bundle/release/*.aab",
-            "name": "CPRApp-${nextRelease.version}.aab"
+            "name": "App-${nextRelease.version}.aab"
           },
         ]
       }
